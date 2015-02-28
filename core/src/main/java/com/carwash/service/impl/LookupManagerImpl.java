@@ -34,4 +34,11 @@ public class LookupManagerImpl implements LookupManager {
 
         return list;
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getBookingCount(){
+    	return dao.getBookingCount();
+    }
 }

@@ -129,6 +129,8 @@ public class StartupListener implements ServletContextListener {
         context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());
         log.debug("Drop-down initialization complete [OK]");
 
+        context.setAttribute(Constants.BOOKING_COUNT, mgr.getBookingCount());
+        
         // Any manager extending GenericManager will do:
         GenericManager manager = (GenericManager) ctx.getBean("userManager");
         doReindexing(manager);

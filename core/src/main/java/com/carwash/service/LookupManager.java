@@ -16,4 +16,6 @@ public interface LookupManager {
      * @return List of LabelValue objects
      */
     List<LabelValue> getAllRoles();
+    
+    int getBookingCount();
 }

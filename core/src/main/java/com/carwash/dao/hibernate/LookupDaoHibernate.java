@@ -40,4 +40,14 @@ public class LookupDaoHibernate implements LookupDao {
         Session session = sessionFactory.getCurrentSession();
         return session.createCriteria(Role.class).list();
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getBookingCount(){
+    	log.debug("get booking count...");
+        Session session = sessionFactory.getCurrentSession();
+    	int count = ((Long)session.createQuery("select count (*) from com.carwash.model.Booking").uniqueResult()).intValue();
+    	return count;
+    }
 }

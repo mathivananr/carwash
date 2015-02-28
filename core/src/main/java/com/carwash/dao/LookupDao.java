@@ -18,4 +18,6 @@ public interface LookupDao {
      * @return populated list of roles
      */
     List<Role> getRoles();
+    
+    int getBookingCount();
 }

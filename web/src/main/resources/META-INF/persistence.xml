@@ -5,6 +5,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.carwash.model.User</class>
         <class>com.carwash.model.Role</class>
+        <class>com.carwash.model.Booking</class>
     </persistence-unit>
 
     <!-- WARNING: This file's file original source is at web/common/src/main/resources/META-INF. The

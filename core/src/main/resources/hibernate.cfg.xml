@@ -6,7 +6,12 @@
 
 <hibernate-configuration>
     <session-factory>
+    	<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+		<!-- Echo all executed SQL in format to Stdout -->
+		<property name="format_sql">false</property>
         <mapping class="com.carwash.model.User"/>
         <mapping class="com.carwash.model.Role"/>
+        <mapping class="com.carwash.model.Booking"/>
     </session-factory>
 </hibernate-configuration>

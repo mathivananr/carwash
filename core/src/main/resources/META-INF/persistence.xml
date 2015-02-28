@@ -5,6 +5,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.carwash.model.User</class>
         <class>com.carwash.model.Role</class>
+        <class>com.carwash.model.Booking</class>
         
         <!-- 
         Adding more <class>f.q.c.Name</class> elements here is not required.  

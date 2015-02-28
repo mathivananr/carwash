@@ -86,4 +86,10 @@ public final class Constants {
      * @deprecated No longer used to set themes.
      */
     public static final String CSS_THEME = "csstheme";
+    
+    public static final String BOOKING_COUNT = "bookingCount";
+    
+    public static final int BOOKING_DEFAULT_COUNT = 4000;
+    
+    public static final String BOOKING_ID_PREFIX = "CW-";
 }
