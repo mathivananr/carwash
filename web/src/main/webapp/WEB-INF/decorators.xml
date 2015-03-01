@@ -6,6 +6,9 @@
         <pattern>/resources/*</pattern>
     </excludes> 
     <decorator name="default" page="default.jsp">
+        <pattern>/admin/*</pattern>
+    </decorator>
+    <decorator name="default" page="caarwash.jsp">
         <pattern>/*</pattern>
     </decorator>
 </decorators>
