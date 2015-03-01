@@ -2,7 +2,9 @@ package com.carwash.dao;
 
 import java.util.List;
 
-import com.carwash.model.Area;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.carwash.model.CityArea;
 import com.carwash.model.City;
 
 /**
@@ -11,7 +13,7 @@ import com.carwash.model.City;
  * @author mathi
  */
 
-public interface MetaDataDao extends GenericDao<Area, String> {
+public interface MetaDataDao extends GenericDao<CityArea, String> {
 
 	/**
 	 * auto complete area Suggestions
@@ -19,6 +21,7 @@ public interface MetaDataDao extends GenericDao<Area, String> {
 	 * @param query
 	 * @return
 	 */
+	@Transactional
 	List<City> citySuggestions(String query);
 
 	/**
@@ -27,7 +30,8 @@ public interface MetaDataDao extends GenericDao<Area, String> {
 	 * @param id
 	 * @return
 	 */
-	Area getArea(String id);
+	@Transactional
+	CityArea getArea(String id);
 
 	/**
 	 * get area by name
@@ -35,7 +39,8 @@ public interface MetaDataDao extends GenericDao<Area, String> {
 	 * @param areaName
 	 * @return
 	 */
-	Area getAreaByName(String areaName);
+	@Transactional
+	CityArea getAreaByName(String areaName);
 
 	/**
 	 * auto complete city Suggestions
@@ -43,7 +48,8 @@ public interface MetaDataDao extends GenericDao<Area, String> {
 	 * @param query
 	 * @return
 	 */
-	List<Area> areaSuggestions(String query, String cityId);
+	@Transactional
+	List<CityArea> areaSuggestions(String query, String cityId);
 
 	/**
 	 * get city by id
@@ -51,6 +57,7 @@ public interface MetaDataDao extends GenericDao<Area, String> {
 	 * @param id
 	 * @return
 	 */
+	@Transactional
 	City getCity(String id);
 
 	/**
@@ -59,6 +66,7 @@ public interface MetaDataDao extends GenericDao<Area, String> {
 	 * @param cityName
 	 * @return
 	 */
+	@Transactional
 	City getCityByName(String cityName);
 
 }

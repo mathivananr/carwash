@@ -6,7 +6,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.carwash.dao.MetaDataDao;
-import com.carwash.model.Area;
+import com.carwash.model.CityArea;
 import com.carwash.model.City;
 
 /**
@@ -16,11 +16,11 @@ import com.carwash.model.City;
  * @author mathi
  */
 @Repository("metaDataDao")
-public class MetaDataDaoHibernate extends GenericDaoHibernate<Area, String>
+public class MetaDataDaoHibernate extends GenericDaoHibernate<CityArea, String>
 		implements MetaDataDao {
 
 	public MetaDataDaoHibernate() {
-		super(Area.class);
+		super(CityArea.class);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -39,8 +39,8 @@ public class MetaDataDaoHibernate extends GenericDaoHibernate<Area, String>
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
-	public Area getArea(String id) {
-		List<Area> areas = getSession().createCriteria(Area.class)
+	public CityArea getArea(String id) {
+		List<CityArea> areas = getSession().createCriteria(CityArea.class)
 				.add(Restrictions.eq("id", id)).list();
 		if (areas.isEmpty()) {
 			return null;
@@ -53,8 +53,8 @@ public class MetaDataDaoHibernate extends GenericDaoHibernate<Area, String>
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
-	public Area getAreaByName(String areaName) {
-		List<Area> areas = getSession().createCriteria(Area.class)
+	public CityArea getAreaByName(String areaName) {
+		List<CityArea> areas = getSession().createCriteria(CityArea.class)
 				.add(Restrictions.eq("areaName", areaName)).list();
 		if (areas.isEmpty()) {
 			return null;
@@ -67,12 +67,12 @@ public class MetaDataDaoHibernate extends GenericDaoHibernate<Area, String>
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Area> areaSuggestions(String query, String cityId) {
-		List<Area> areas = getSession().createCriteria(Area.class, "area")
-				.add(Restrictions.like("area.areaName", "%" + query + "%"))
-				.createAlias("area.city", "city")
-				.add(Restrictions.eq("city.id", cityId)).setMaxResults(10)
-				.list();
+	public List<CityArea> areaSuggestions(String query, String cityId) {
+		List<CityArea> areas = getSession().createCriteria(CityArea.class, "cityArea")
+				.add(Restrictions.like("cityArea.areaName", "%" + query + "%"))
+				.createAlias("cityArea.city", "city")
+				.add(Restrictions.eq("city.id", cityId))
+				.setMaxResults(10).list();
 		return areas;
 	}
 

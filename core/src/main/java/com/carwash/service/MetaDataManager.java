@@ -2,7 +2,7 @@ package com.carwash.service;
 
 import java.util.List;
 
-import com.carwash.model.Area;
+import com.carwash.model.CityArea;
 import com.carwash.model.City;
 import com.carwash.model.LabelValue;
 
@@ -12,7 +12,7 @@ import com.carwash.model.LabelValue;
  * 
  * @author mathi
  */
-public interface MetaDataManager extends GenericManager<Area, String> {
+public interface MetaDataManager extends GenericManager<CityArea, String> {
 
 	/**
 	 * auto complete area suggestion
@@ -28,7 +28,7 @@ public interface MetaDataManager extends GenericManager<Area, String> {
 	 * @param id
 	 * @return
 	 */
-	Area getArea(String id);
+	CityArea getArea(String id);
 
 	/**
 	 * get area by name
@@ -36,7 +36,7 @@ public interface MetaDataManager extends GenericManager<Area, String> {
 	 * @param areaName
 	 * @return
 	 */
-	Area getAreaByName(String areaName);
+	CityArea getAreaByName(String areaName);
 
 	List<LabelValue> getCitySuggestions(String query);
 
@@ -48,7 +48,7 @@ public interface MetaDataManager extends GenericManager<Area, String> {
 	 * @param query
 	 * @return
 	 */
-	List<Area> areaSuggestions(String query, String cityId);
+	List<CityArea> areaSuggestions(String query, String cityId);
 
 	/**
 	 * get city by id

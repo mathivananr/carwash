@@ -3,14 +3,17 @@ package com.carwash.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jws.WebService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.carwash.dao.MetaDataDao;
-import com.carwash.model.Area;
+import com.carwash.model.CityArea;
 import com.carwash.model.City;
 import com.carwash.model.LabelValue;
 import com.carwash.service.MetaDataManager;
+import com.carwash.service.MetaDataService;
 
 /**
  * Implementation of MetaDataManager interface.
@@ -18,8 +21,9 @@ import com.carwash.service.MetaDataManager;
  * @author mathi
  */
 @Service("metaDataManager")
-public class MetaDataManagerImpl extends GenericManagerImpl<Area, String>
-		implements MetaDataManager {
+@WebService(serviceName = "MetaDataService", endpointInterface = "com.carwash.service.MetaDataService")
+public class MetaDataManagerImpl extends GenericManagerImpl<CityArea, String>
+		implements MetaDataManager, MetaDataService {
 
 	private MetaDataDao metaDataDao;
 
@@ -53,11 +57,18 @@ public class MetaDataManagerImpl extends GenericManagerImpl<Area, String>
 	/**
 	 * {@inheritDoc}
 	 */
+	public List<LabelValue> getAreaSuggestion(String query) {
+		return getAreaSuggestions(query, "178289e8-133c-11e4-a849-e069959ac2ac");
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public List<LabelValue> getAreaSuggestions(String query, String cityId) {
-		List<Area> areas = metaDataDao.areaSuggestions(query, cityId);
+		List<CityArea> areas = metaDataDao.areaSuggestions(query, cityId);
 		List<LabelValue> list = new ArrayList<LabelValue>();
 
-		for (Area area : areas) {
+		for (CityArea area : areas) {
 			list.add(new LabelValue(area.getAreaName(), area.getId()));
 		}
 
@@ -67,21 +78,21 @@ public class MetaDataManagerImpl extends GenericManagerImpl<Area, String>
 	/**
 	 * {@inheritDoc}
 	 */
-	public Area getArea(String id) {
+	public CityArea getArea(String id) {
 		return metaDataDao.get(id);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Area getAreaByName(String areaName) {
+	public CityArea getAreaByName(String areaName) {
 		return metaDataDao.getAreaByName(areaName);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<Area> areaSuggestions(String query, String cityId) {
+	public List<CityArea> areaSuggestions(String query, String cityId) {
 		return metaDataDao.areaSuggestions(query, cityId);
 	}
 

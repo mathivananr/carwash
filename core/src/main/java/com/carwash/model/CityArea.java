@@ -24,10 +24,10 @@ import org.hibernate.search.annotations.Indexed;
  * @author mathi
  */
 @Entity
-@Table(name = "app_area")
+@Table(name = "app_city_area")
 @Indexed
 @XmlRootElement
-public class Area extends BaseObject implements Serializable{
+public class CityArea extends BaseObject implements Serializable{
 
 	private static final long serialVersionUID = 3617859655330969141L;
 	private String id;
@@ -35,7 +35,7 @@ public class Area extends BaseObject implements Serializable{
 	private String postalCode;
 	private City city;
 
-	public Area() {
+	public CityArea() {
 
 	}
 
@@ -94,11 +94,11 @@ public class Area extends BaseObject implements Serializable{
 		if (this == o) {
 			return true;
 		}
-		if (!(o instanceof Area)) {
+		if (!(o instanceof CityArea)) {
 			return false;
 		}
 
-		final Area area = (Area) o;
+		final CityArea area = (CityArea) o;
 
 		return !(id != null ? !id.equals(area.getId()) : area.getId() != null);
 

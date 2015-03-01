@@ -39,7 +39,7 @@ public class City extends BaseObject implements Serializable {
 	private String state;
 	private String countryCode;
 	private String county;
-	private List<Area> areas = new ArrayList<Area>();
+	private List<CityArea> areas = new ArrayList<CityArea>();
 	
 	public City(){
 		
@@ -96,15 +96,15 @@ public class City extends BaseObject implements Serializable {
 		this.county = county;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, targetEntity = Area.class, mappedBy = "city", fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = CityArea.class, mappedBy = "city", fetch = FetchType.EAGER, orphanRemoval = true)
     @OrderBy("id")
     @Fetch(value = FetchMode.SELECT)
 	@JsonIgnore
-	public List<Area> getAreas() {
+	public List<CityArea> getAreas() {
 		return areas;
 	}
 
-	public void setAreas(List<Area> areas) {
+	public void setAreas(List<CityArea> areas) {
 		this.areas = areas;
 	}
 

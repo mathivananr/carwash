@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.carwash.model.Area;
+import com.carwash.model.CityArea;
 import com.carwash.model.LabelValue;
 import com.carwash.service.MetaDataManager;
 
