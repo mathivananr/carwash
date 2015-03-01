@@ -103,14 +103,45 @@ jQuery(document).ready(function($){
         showNextProduct();
     }
 
-    $('#time').timepicker({
-        'showDuration': true,
-        'timeFormat': 'g:ia'
+    $('#bookingDate').datetimepicker({
+        defaultDate : new Date(),
+        format:'d/M/Y H:i',
+        startDate: new Date()
     });
 
-    $('#date').datepicker({
-        'format': 'yyyy-m-d',
-        'autoclose': true
+    initTypeAhead($("#location"), "location", "/metadata/getArea/",10);
+
+    $("#contact-form-send-button").click(function(){
+        var url = "services/api/booking?ajax=true"
+        /*var paramMap = {
+            'userName' : $("#userName").val(),
+            'userEmail' : $("#userEmail").val(),
+            'userMobileNo' : $("#userMobileNo").val(),
+            'city' : $("#city").val(),
+            'area' : $("#area").val(),
+            'bookingDate' : $("#bookingDate").val(),
+            'bookingTime' : $("#bookingTime").val(),
+        };
+        $.post(url, JSON.stringify(paramMap), function(data){
+            console.log("ggggg"+data);
+            if(data != null){
+                console.log(data);
+            }
+        });*/
+
+        var formData = JSON.stringify($("#cPass").serializeArray());
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            success: function(data){
+                console.log("ggggg"+data);
+            },
+            dataType: "json",
+            contentType : "application/json"
+        });
     });
+
+
 });
 

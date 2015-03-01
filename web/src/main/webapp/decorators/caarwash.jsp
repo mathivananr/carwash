@@ -91,32 +91,40 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title" id="myModalLabel" style="color:#E96125">Contact</h4>
                 </div>
-                <div id="contactResponse" class="modal-body">
-                    <form id="cPass" class="form-horizontal" data-async="" data-target="#contact-modal" action="http://www.grofers.com/mail/contact_me.php" method="POST">
-                        <p>
-                            <input id="name" name="name" placeholder="Name" class="form-control" type="text" required="" autofocus="">
-                        </p>
-                        <p>
-                            <input id="email" name="email" placeholder="Email Address" class="form-control" type="email" required="">
-                        </p>
-                        <p>
-                            <input id="phone" name="phone" placeholder="Phone Number" class="form-control" type="phone" required="">
-                        </p>
-                        <p>
-                            <input id="date" name="date" placeholder="Date" class="form-control" type="text" required="">
-                        </p>
-                        <p>
-                            <input id="time" name="time" placeholder="Time" class="form-control" type="text" required="">
-                        </p>
-                        <p>
+                <div id="contactResponse" class="modal-body row">
+                    <form id="cPass" class="form-horizontal" data-async="" data-target="#contact-modal" action="booking" method="POST">
+                        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 form-group">
+                            <input id="userName" name="userName" placeholder="Name" class="form-control" type="text" required="" autofocus="">
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 form-group">
+                            <input id="userEmail" name="userEmail" placeholder="Email Address" class="form-control" type="email" required="">
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 form-group">
+                            <input id="userMobileNo" name="userMobileNo" placeholder="Phone Number" maxlength="10" class="form-control" type="phone" required="">
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 form-group">
+                            <select id="city" name="city" placeholder="City" class="col-md-6 form-control" type="text">
+                                <option value="Chennai">Chennai</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 form-group">
+                            <select id="area" name="area" placeholder="Location" class="col-md-6 form-control" type="text">
+                                <option value="Ambattur">Ambattur</option>
+                            </select>
+                            <%--<input id="location" name="location" placeholder="Type your Location" class="form-control" type="text" required="">--%>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 form-group">
+                            <input id="bookingDate" name="bookingDate" placeholder="Date" class="form-control" type="text" required="">
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 form-group">
                             <label></label>
-                            <textarea rows="5" name="message" class="form-control" placeholder="Message" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
-                        </p>
-                        <p>
+                            <textarea rows="5" name="address" class="form-control" placeholder="Address" id="message" required="" data-validation-required-message="Please enter a address."></textarea>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button class="btn btn-primary" id="contact-form-send-button" type="submit" style="background-color:#E0471D;
-                    												     border-color:#E0471D">Send</button>
-                        </p>
+                            <button class="btn btn-primary" id="contact-form-send-button" type="button" style="background-color:#E0471D;
+                    												     border-color:#E0471D">Book</button>
+                        </div>
                     </form>
                 </div>
             </div>
