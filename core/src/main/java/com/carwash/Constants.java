@@ -92,4 +92,10 @@ public final class Constants {
     public static final int BOOKING_DEFAULT_COUNT = 4000;
     
     public static final String BOOKING_ID_PREFIX = "CW-";
+    
+    public static final String BOOKING_OPENED = "Opened";
+    
+    public static final String BOOKING_CANCELED = "Canceled";
+    
+    public static final String BOOKING_CLOSED = "Closed";
 }

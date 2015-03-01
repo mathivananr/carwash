@@ -6,6 +6,7 @@ import javax.jws.WebService;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -40,6 +41,21 @@ public interface BookingService {
 	@Produces("application/json")
 	Booking saveBooking(Booking booking) throws UserExistsException;
 
+	@PUT
+	@Path("/booking")
+	@Produces("application/json")
+	Booking updateBooking(Booking booking) throws UserExistsException;
+	
+	@POST
+	@Path("/booking/cancelBooking/{bookingId}")
+	@Produces("application/json")
+	Booking cancelBooking(@PathParam("bookingId") String bookingId) throws UserExistsException;
+	
+	@POST
+	@Path("/booking/closeBooking/{bookingId}")
+	@Produces("application/json")
+	Booking closeBooking(@PathParam("bookingId") String bookingId) throws UserExistsException;
+	
 	@DELETE
 	@Path("/booking")
 	@Produces("application/json")
