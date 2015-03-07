@@ -126,6 +126,7 @@ public class Booking extends BaseObject implements Serializable {
 		this.userName = userName;
 	}
 
+	@Column(columnDefinition="TEXT")
 	public String getAddress() {
 		return address;
 	}

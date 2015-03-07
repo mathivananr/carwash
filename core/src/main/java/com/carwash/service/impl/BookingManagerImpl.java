@@ -55,6 +55,7 @@ public class BookingManagerImpl extends GenericManagerImpl<Booking, String>
 	 */
 	public Booking saveBooking(Booking booking) throws UserExistsException {
 		Calendar now = new GregorianCalendar();
+		try{
 		booking.setCreatedOn(now);
 		booking.setUpdatedOn(now);
 		booking.setCreatedBy(CommonUtil.getLoggedInUserName());
@@ -68,6 +69,10 @@ public class BookingManagerImpl extends GenericManagerImpl<Booking, String>
 		CommonUtil.getServletcontext().setAttribute(Constants.BOOKING_COUNT,
 				++bookingCount);
 		return booking;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	/**

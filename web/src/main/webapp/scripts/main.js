@@ -105,14 +105,14 @@ jQuery(document).ready(function($){
 
     $('#bookingDate').datetimepicker({
         defaultDate : new Date(),
-        format:'d/M/Y H:i',
+        format:'Y-m-d H:i',
         startDate: new Date()
     });
 
     initTypeAhead($("#location"), "location", "/metadata/getArea/",10);
 
-    $("#contact-form-send-button").click(function(){
-        var url = "services/api/booking?ajax=true"
+    $("#book-button").click(function(){
+        var url = "services/api/booking"
         /*var paramMap = {
             'userName' : $("#userName").val(),
             'userEmail' : $("#userEmail").val(),
@@ -129,13 +129,24 @@ jQuery(document).ready(function($){
             }
         });*/
 
-        var formData = JSON.stringify($("#cPass").serializeArray());
+        var result = { };
+        $.each($("#cPass").serializeArray(), function () {
+        	if(this.name == "bookingDate" && this.value != null && this.value != undefined && this.value != ''){
+        		result[this.name] = this.value.split(" ")[0];
+        		result["bookingTime"] = this.value.split(" ")[1];
+        	} else {
+        		result[this.name] = this.value;
+        	}
+        });
         $.ajax({
             type: "POST",
             url: url,
-            data: formData,
+            data: JSON.stringify(result),
             success: function(data){
-                console.log("ggggg"+data);
+            	if(data.id != undefined && data.id != null && data.id != ''){
+            		$('#success-message').removeClass( "collapse" );
+            		 $('#book-button').attr('disabled','disabled');
+            	}
             },
             dataType: "json",
             contentType : "application/json"

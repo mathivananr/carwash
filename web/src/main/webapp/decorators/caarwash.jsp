@@ -88,11 +88,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel" style="color:#E96125">Contact</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color:#E96125">Booking</h4>
                 </div>
                 <div id="contactResponse" class="modal-body row">
                     <form id="cPass" class="form-horizontal" data-async="" data-target="#contact-modal" action="booking" method="POST">
+                    	<div id="success-message" class="alert alert-success collapse">
+						    <a href="#" class="close" data-dismiss="alert">&times;</a>
+						    <strong>Success!</strong> booked successfully, We will contact you ASAP.
+						</div>
                         <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 form-group">
                             <input id="userName" name="userName" placeholder="Name" class="form-control" type="text" required="" autofocus="">
                         </div>
@@ -122,7 +126,7 @@
                         </div>
                         <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button class="btn btn-primary" id="contact-form-send-button" type="button" style="background-color:#E0471D;
+                            <button class="btn btn-primary" id="book-button" type="button" style="background-color:#E0471D;
                     												     border-color:#E0471D">Book</button>
                         </div>
                     </form>
